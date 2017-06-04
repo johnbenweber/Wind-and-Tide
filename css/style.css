@@ -1,0 +1,13 @@
+.container {
+    float:left;
+}
+
+#windsurfGraphs {
+    width:100%;
+    overflow:auto;
+}
+
+#forecastWidget {
+    width:100%;
+    overflow:auto;
+}
