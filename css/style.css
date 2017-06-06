@@ -1,5 +1,22 @@
+body {
+    font-family:helvetica;
+    padding-left:10px;
+}
+
 .container {
     float:left;
+    padding:0px;
+    margin-right:10px;
+}
+
+.container img {
+    border: thin solid black;
+    padding:10px;
+}
+
+.container p {
+    padding:0px;
+    margin:0px;
 }
 
 #windsurfGraphs {
@@ -10,4 +27,33 @@
 #forecastWidget {
     width:100%;
     overflow:auto;
+}
+
+td.even {
+    background-color: #c2c2c2;
+}
+
+td.odd {
+    background-color: #eaeaea;
+}
+
+#tideForecast {
+    display:inline-block;
+}
+
+#tideForecast table {
+    border-collapse:collapse;    
+    border: thin solid black;
+}
+
+#tideForecast td {
+    line-height: 100%;
+    text-align:center;
+    font-size:11px;
+    padding:2px;
+    border:thin solid white;
+}
+
+.tableDiv {
+    border:thin solid black;
 }
