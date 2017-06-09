@@ -14,25 +14,27 @@
 
     <h4>Wind measurements from <a href="http://www.windsurf.co.nz" target="_blank">windsurf.co.nz</a></h4>
     <div id="windsurfGraphs" class="section">
-        <div class="container">
-            <p>Shoal Bay</p>
-            <image src="http://windsurf.co.nz/chart/line_shoalbay.asp" />
-        </div>
-        <div class="container">
-            <p>Takapuna</p>
-            <image src="http://windsurf.co.nz/chart/line_takapuna.asp" />
-        </div>
-        <div class="container">
-            <p>Mairangi</p>
-            <image src="http://windsurf.co.nz/chart/line_mairangi.asp" />
-        </div>
-        <div class="container">
-            <p>Pt. Chev</p>
-            <image src="http://windsurf.co.nz/chart/line_ptchev.asp" />
-        </div>
-        <div class="container">
-            <p>Orewa</p>
-            <image src="http://windsurf.co.nz/chart/line_orewa.asp" />
+        <div class="containerRow">
+            <div class="container">
+                <p>Shoal Bay</p>
+                <image src="http://windsurf.co.nz/chart/line_shoalbay.asp" />
+            </div>
+            <div class="container">
+                <p>Takapuna</p>
+                <image src="http://windsurf.co.nz/chart/line_takapuna.asp" />
+            </div>
+            <div class="container">
+                <p>Mairangi</p>
+                <image src="http://windsurf.co.nz/chart/line_mairangi.asp" />
+            </div>
+            <div class="container">
+                <p>Pt. Chev</p>
+                <image src="http://windsurf.co.nz/chart/line_ptchev.asp" />
+            </div>
+            <div class="container">
+                <p>Orewa</p>
+                <image src="http://windsurf.co.nz/chart/line_orewa.asp" />
+            </div>
         </div>
     </div>
 
