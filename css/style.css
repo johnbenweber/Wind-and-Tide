@@ -4,6 +4,10 @@ body {
     padding-right:10px;
 }
 
+h4 a {
+    font-size:75%;
+}
+
 .containerRow {
     width:825px;
     height:175px;

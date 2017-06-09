@@ -12,7 +12,8 @@
 
 <body>
 
-    <h4>Wind measurements from <a href="http://www.windsurf.co.nz" target="_blank">windsurf.co.nz</a></h4>
+    <h4>Measured Wind<br/>
+    <a href="http://www.windsurf.co.nz" target="_blank">windsurf.co.nz</a></h4>
     <div id="windsurfGraphs" class="section">
         <div class="containerRow">
             <div class="container">
@@ -38,17 +39,20 @@
         </div>
     </div>
 
-    <h4>Tide measurements from <a href="http://www.ioc-sealevelmonitoring.org/station.php?code=auct" target="_blank">ioc-sealevelmonitoring.org</a></h4>
+    <h4>Measured Tide<br/>
+    <a href="http://www.ioc-sealevelmonitoring.org/station.php?code=auct" target="_blank">ioc-sealevelmonitoring.org</a></h4>
     <div id="tideGraph" class="section">
         <image src="http://ioc-sealevelmonitoring.org/station.php?taboption=plot&code=auct&period=0.5" style="border:thin solid black;padding:1px;"/>
     </div>
 
-    <h4>Wind forecast from <a href="http://www.windguru.cz" target="_blank">windguru.cz</a></h4>
+    <h4>Forecast Wind<br/>
+    <a href="http://www.windguru.cz" target="_blank">windguru.cz</a></h4>
     <div id="windForecast" class="section">
         <div id="forecastWidget"></div>
     </div>
 
-    <h4>Tide forecast from <a href="http://www.linz.govt.nz" target="_blank">linz.govt.nz</a></h4>
+    <h4>Forecast Tide<br/>
+    <a href="http://www.linz.govt.nz" target="_blank">linz.govt.nz</a></h4>
     <div id="tideForecast" class="section">
 
     <?php
