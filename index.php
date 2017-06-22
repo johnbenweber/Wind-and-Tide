@@ -52,7 +52,7 @@
     </div>
 
     <h4>Forecast Tide<br/>
-    <a href="http://www.linz.govt.nz" target="_blank">linz.govt.nz</a></h4>
+    <a href="http://www.linz.govt.nz/sea/tides/tide-predictions" target="_blank">linz.govt.nz</a></h4>
     <div id="tideForecast" class="section">
 
     <?php
@@ -122,6 +122,88 @@
             }
         } catch(Exception $e) {
             echo '<h5>Tide forecast unavailable.</h5>';
+            echo '<p class="text-danger">'.$e->getMessage().'</p>';
+        }
+    ?>
+    </div>
+
+    <h4>Forecast Sun Rise/Set<br/>
+    <a href="http://aa.usno.navy.mil/data/docs/RS_OneYear.php" target="_blank">aa.usno.navy.mil</a></h4>
+    <div id="sunForecast" class="section">
+
+    <?php
+
+        try {
+            date_default_timezone_set('Pacific/Auckland');
+
+            $nowDate = new DateTime('now');
+
+            $jan1st = new DateTime('2016-12-31');  
+
+            $start = $nowDate->diff($jan1st);
+            $endDate = $nowDate->add(new DateInterval('P5D'));
+            $end = $endDate->diff($jan1st);
+
+            $db = new PDO('sqlite:db/sun.sqlite3');
+            $db->setAttribute(PDO::ATTR_ERRMODE, 
+                              PDO::ERRMODE_EXCEPTION);
+
+            if($db){
+
+                $sth = $db->prepare('SELECT * FROM auckland WHERE elapsed>=? AND elapsed<=? ORDER BY id');
+                $sth->execute(array($start->days,$end->days));
+                $result = $sth->fetchAll();
+
+                echo '<div class="tableDiv"><table>';
+                echo '<tr>';
+                echo '<td style="background-color:#eaeaea;"></td>';
+
+                foreach($result as $row) {
+                    $class = colClass($row['elapsed']);
+                    $day = date('D',strtotime($row['year'].'-'.$row['month'].'-'.$row['day']));
+                    
+                    echo '<td class="'.$class.'">'.substr($day,0,2).'<br/>'.substr('0'.$row['day'],-2).'.</td>';
+                }
+
+                echo '</tr><tr>';
+                echo '<td style="background-color:#eaeaea;">First Light</td>';
+
+                foreach($result as $row) {
+                    $class = colClass($row['elapsed']);
+                    echo '<td class="'.$class.'">'.$row['mct'].'</td>';
+                }
+
+                echo '</tr><tr>';
+                echo '<td style="background-color:#eaeaea;">Sunrise</td>';
+
+                foreach($result as $row) {
+                    $class = colClass($row['elapsed']);
+                    echo '<td class="'.$class.'">'.$row['rise'].'</td>';
+                }
+
+                echo '</tr><tr>';
+                echo '<td style="background-color:#eaeaea;">Sunset</td>';
+
+                foreach($result as $row) {
+                    $class = colClass($row['elapsed']);
+                    echo '<td class="'.$class.'">'.$row['set'].'</td>';
+                }
+
+                echo '</tr><tr>';
+                echo '<td style="background-color:#eaeaea;">Last Light</td>';
+
+                foreach($result as $row) {
+                    $class = colClass($row['elapsed']);
+                    echo '<td class="'.$class.'">'.$row['ect'].'</td>';
+                }
+
+                echo '</tr>';
+                echo '</table></div>';
+            } else {
+                throw new Exception('Error: Unable to open database.');
+            }
+        } catch(Exception $e) {
+            echo '<h5>Sun forecast unavailable.</h5>';
             echo '<p class="text-danger">'.$e->getMessage().'</p>';
         }
     ?>
